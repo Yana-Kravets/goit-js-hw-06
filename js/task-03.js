@@ -13,17 +13,16 @@ const images = [
   },
 ];
 
-
 const galleryEl = document.querySelector('.gallery');
-const markup = images.map((image) => `<li><img class='picture' src=${image.url} width='500' height='300' alt='${image.alt}'></li>`).join('');
 
-galleryEl.insertAdjacentHTML("afterbegin", markup);
+const markup = images.map(({ url, alt }) => `<li><img src=${url} width='500' height='300' alt=${alt}></li>`).join('');
+
+galleryEl.insertAdjacentHTML('afterbegin', markup);
+
 
 galleryEl.style.listStyle = 'none';
 galleryEl.style.display = 'flex';
 galleryEl.style.flexWrap = 'column-reverse';
 galleryEl.style.gap = '15px';
 galleryEl.style.justifyContent = 'center';
-
-
 
